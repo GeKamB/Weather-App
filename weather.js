@@ -6,8 +6,8 @@ export function getWeather(lat, lon, timezone) {
         latitude: lat,
         longitude: lon,
         timezone
-    }}).then(({ data}) => {
-      console.log(data)
+    }}).then(({ data }) => {
+        console.log(data)
         return {
            current: parseCurrentWeather(data),
            daily: parseDailyWeather(data),
@@ -17,7 +17,9 @@ export function getWeather(lat, lon, timezone) {
 }
 
 function parseCurrentWeather({ current, daily }) {
-    const { temperature_2m: currentTemp, wind_speed_10m: windSpeed, weather_code: iconCode} = current
+    const { temperature_2m: currentTemp,
+         wind_speed_10m: windSpeed,
+          weather_code: iconCode } = current
     const { temperature_2m_max: [maxTemp],
             temperature_2m_min: [minTemp],
             apparent_temperature_max: [maxFeelsLikeTemp],
