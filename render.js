@@ -13,7 +13,7 @@ export function setValue(selector, value, { parent = document} = {}) {
      parent.querySelector(`[data-${selector}]`).textContent = value
 }
   function getIconUrl(iconCode) {
-    return `./public/icons/${ICON_MAP.get(iconCode)}.svg`
+    return `./dist/icons/${ICON_MAP.get(iconCode)}.svg`
   }
   export function renderCurrentWeather(current) {
     
