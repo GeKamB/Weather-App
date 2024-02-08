@@ -1,8 +1,8 @@
 import './style.css';
-import { getWeather } from '../weather';
-import { renderCurrentWeather, renderDailyWeather, renderHourlyWeather } from '../render';
-import { returnLocation } from '../location'
-import { setValue } from '../render';
+import { getWeather } from './weather'
+import { renderCurrentWeather, renderDailyWeather, renderHourlyWeather } from './render';
+import { returnLocation } from './location'
+import { setValue } from './render';
 const hourlySection = document.querySelector('[data-hour-section]')
 const openButton = document.querySelector('[data-open-modal]')
 const closeButton = document.querySelector('[data-close-modal]')
@@ -14,6 +14,7 @@ let lat
 let long
 const cityName = document.querySelector('[data-city-name]')
 const searchButton = document.querySelector('[data-search-button]')
+const loader = document.querySelector('[data-loader]')
 
 openButton.addEventListener('click', () => {
     modal.show()
@@ -106,5 +107,5 @@ function renderWeather({ current, daily, hourly}) {
     renderCurrentWeather(current)
     renderDailyWeather(daily)
     renderHourlyWeather(hourly)
-    
+    loader.style.display = 'none'
 }
