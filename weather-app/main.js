@@ -15,6 +15,7 @@ let long
 const cityName = document.querySelector('[data-city-name]')
 const searchButton = document.querySelector('[data-search-button]')
 const loader = document.querySelector('[data-loader]')
+//aa
 
 openButton.addEventListener('click', () => {
     modal.show()
