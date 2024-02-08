@@ -17,6 +17,7 @@ export function getWeather(lat, lon, timezone) {
 }
 
 function parseCurrentWeather({ current, daily }) {
+    
     const { temperature_2m: currentTemp,
          wind_speed_10m: windSpeed,
           weather_code: iconCode } = current
@@ -37,6 +38,7 @@ function parseCurrentWeather({ current, daily }) {
     }
 }
 function parseDailyWeather({ daily }) {
+    
     return daily.time.map((time, index) => {
         return {
             timestamp: time * 1000,
@@ -46,6 +48,7 @@ function parseDailyWeather({ daily }) {
     })
 }
 function parseHourlyWeather({ hourly, current }) {
+    
     return hourly.time.map((time, index) => {
         return{
             timestamp: time * 1000,

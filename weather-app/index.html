@@ -6,9 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App🌎</title>
   </head>
-  <body class="blurred" >
+  <body >
     <header class="header">
+      
+      <dialog data-modal>
+        <div class="modal-search-box">
+          <form >
+            <input type="text" data-loc-search >
+            <button data-search-button>&#128270;</button>
+          </form>
+          <div>
+            <button data-close-modal>&#120143;</button>
+          </div>
+        
+        </div>
+        <div data-search-result>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Country</th>
+                <th scope="col">Admin1</th> 
+                <th scope="col">Admin2</th>          
+                <th scope="col">Admin3</th> 
+                <th scope="col">Population</th>          
+               
+               
+              </tr>
+            </thead>
+            <tbody data-body>
+              
+            </tbody>
+          </table>
+        </div>
+      </dialog>
       <div class="header-left">
+        <button data-open-modal>search &#128270; </button>
+      <h2 data-city-name></h2>
         <img class="weather-icon  large" src="./public/icons/sun.svg" data-current-icon alt="Weather Icon">
         <div class="header-current-temp">
           <span data-current-temp>20</span>&deg;
@@ -138,6 +172,18 @@
           </div>
         </td>
       </tr>
+    </template>
+    <template data-template>
+      <tr>
+        <th scope="row" data-name></th>
+        <td data-country></td>
+        <td data-admin1></td>
+        <td data-admin2></td>
+        <td data-admin3></td>
+        <td data-population></td>
+
+        <td ><button data-select>select</button></td>
+    </tr>
     </template>
     <script type="module" src="/main.js"></script>
   </body>

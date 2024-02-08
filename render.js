@@ -9,13 +9,14 @@ const hourRowTemplate = document.getElementById('hour-row-template')
 const HOUR_FORMATTER = new Intl.DateTimeFormat(undefined, { hour: 'numeric' })
 
 
-  function setValue(selector, value, { parent = document} = {}) {
+export function setValue(selector, value, { parent = document} = {}) {
      parent.querySelector(`[data-${selector}]`).textContent = value
 }
   function getIconUrl(iconCode) {
     return `./public/icons/${ICON_MAP.get(iconCode)}.svg`
   }
   export function renderCurrentWeather(current) {
+    
     currentIcon.src = getIconUrl(current.iconCode)
     setValue('current-temp', current.currentTemp)
     setValue('current-high', current.highTemp)
@@ -36,8 +37,9 @@ const HOUR_FORMATTER = new Intl.DateTimeFormat(undefined, { hour: 'numeric' })
     })
   }
   export function renderHourlyWeather(hourly) {
+    hourlySection.innerHTML = ''
     hourly.innerHTML = ''
-    hourly.forEach(hour => {
+    hourly.slice(0, 24).forEach(hour => {
       const element = hourRowTemplate.content.cloneNode(true)
       setValue('temp', hour.temp, { parent: element })
       setValue('fl-temp', hour.feelsLike, { parent: element })
