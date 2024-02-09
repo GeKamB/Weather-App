@@ -15,7 +15,7 @@ let long
 const cityName = document.querySelector('[data-city-name]')
 const searchButton = document.querySelector('[data-search-button]')
 const loader = document.querySelector('[data-loader]')
-//aa
+
 
 openButton.addEventListener('click', () => {
     modal.show()
@@ -49,15 +49,9 @@ function render(ans) {
         setValue('admin2', answ.admin2, { parent: element })
         setValue('admin3', answ.admin3, { parent: element })
         setValue('population', answ.population, { parent: element })
-        const bttn = element.querySelector('[data-select]')
-    
-        bttn.setAttribute('data-no', index)
-        
-        
-        
-        body.append(element)
-        
-
+        const bttn = element.querySelector('[data-select]')    
+        bttn.setAttribute('data-no', index)  
+        body.append(element)       
     })
 
     body.addEventListener('click', e => {
@@ -66,9 +60,7 @@ function render(ans) {
             let indexToretrive =e.target.getAttribute('data-no')
             lat = ans[indexToretrive].latitude
             long = ans[indexToretrive].longitude
-            setTimeout(()=>{cityName.textContent = ans[indexToretrive].name}, 1000)
-            
-            
+            setTimeout(()=>{cityName.textContent = ans[indexToretrive].name}, 1000)                  
             getWeather(
                 lat,
                 long,
@@ -96,7 +88,7 @@ function positionSuccess({ coords }) {
 }
 function positionError() {
     alert('Error while getting location. Allow us to use your location and refresh the page or SEARCH for locatiom')
-    loader.style.display = 'none'
+    
 
 }
 
