@@ -95,7 +95,9 @@ function positionSuccess({ coords }) {
             })
 }
 function positionError() {
-    alert('Error while getting location. Allow us to use your location and refresh the page')
+    alert('Error while getting location. Allow us to use your location and refresh the page or SEARCH for locatiom')
+    loader.style.display = 'none'
+
 }
 
 
